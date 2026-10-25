@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #070913;
+  --bg-surface: #0e1322;
+  --bg-card: #151c30;
+  --bg-card-hover: #1c253f;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(229, 9, 20, 0.4);
+  
+  --brand-primary: #e50914;
+  --brand-primary-hover: #f40612;
+  --brand-accent: #f59e0b;
+  --brand-cyan: #38bdf8;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --seat-available: #1e293b;
+  --seat-available-border: #334155;
+  --seat-selected: #e50914;
+  --seat-locked: #f59e0b;
+  --seat-booked: #334155;
+  
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(14, 19, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: rgba(21, 28, 48, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(28, 37, 63, 0.85);
+  border-color: rgba(229, 9, 20, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(229, 9, 20, 0.15);
+}
+
+/* Cinema Screen Curve */
+.cinema-screen-container {
+  perspective: 600px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.cinema-screen-curve {
+  height: 28px;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.5) 0%, rgba(56, 189, 248, 0.02) 100%);
+  border-top: 3px solid #38bdf8;
+  box-shadow: 0 -10px 30px rgba(56, 189, 248, 0.35);
+  margin-bottom: 0.5rem;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #e50914 0%, #b80710 100%);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.65rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.5);
+  background: linear-gradient(135deg, #f40612 0%, #c40812 100%);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  font-weight: 500;
+  border-radius: 10px;
+  padding: 0.65rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Glow Badges */
+.badge-red {
+  background: rgba(229, 9, 20, 0.15);
+  color: #ff4b55;
+  border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+.badge-gold {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-cyan {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
